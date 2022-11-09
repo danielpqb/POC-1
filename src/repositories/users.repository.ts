@@ -8,4 +8,18 @@ async function getUserByName(name: string) {
   return db.query(`SELECT * FROM users WHERE name=$1;`, [name]);
 }
 
-export { createUser, getUserByName };
+async function selectTop10MostAccurateUsers() {
+  return db.query(
+    `
+    SELECT user_id, users.name, COUNT(user_id) as "correctBets"
+    FROM bets
+    JOIN users ON user_id=users.id
+    WHERE status=true AND cancelled=false
+    GROUP BY user_id, users.name
+    ORDER BY "correctBets" DESC
+    LIMIT 10;
+    `
+  );
+}
+
+export { createUser, getUserByName, selectTop10MostAccurateUsers };
