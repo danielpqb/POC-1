@@ -4,12 +4,12 @@ In this project you can bet on football games and check if you are good at guess
 
 ## Features
 
-* Create new user
-* Create new match
-* Create new bet
-* List the 10 most accurate users
-* Update bet (delete the older and insert a new bet)
-* Delete bet
+- Create new user
+- Create new match
+- Create new bet
+- List the 10 most accurate users
+- Update bet (delete the older and insert a new bet)
+- Delete bet
 
 ## Technologies
 
@@ -17,7 +17,7 @@ In this project you can bet on football games and check if you are good at guess
 
 ## How to run
 
-1) Clone this repository
+1. Clone this repository
 
 ```shell
 git clone https://github.com/danielpqb/POC-1.git
@@ -41,7 +41,8 @@ npm start
 1. Register yourself on the **/users/new** route.
 2. Add future matches on **/matches/new**.
 3. Now you can create, update and delete your bets.
-4. When you are done, you can get the ranking of the most accurate users.
+4. Make sure to update the bets to have a status **true** if it was a correct bet, or **false** otherwise.
+5. When you are done, you can get the ranking of the most accurate users.
 
 ## Documentation
 
@@ -51,7 +52,7 @@ Body:
 
 ```json
 {
-    "name": "Daniel"
+  "name": "Daniel"
 }
 ```
 
@@ -61,8 +62,8 @@ Body:
 
 ```json
 {
-    "team1": "Brazil",
-    "team2": "Switzerland"
+  "team1": "Brazil",
+  "team2": "Switzerland"
 }
 ```
 
@@ -72,10 +73,10 @@ Body:
 
 ```json
 {
-    "user_id": 1,
-    "match_id": 1,
-    "team1_score": 1,
-    "team2_score": 2
+  "user_id": 1,
+  "match_id": 1,
+  "team1_score": 1,
+  "team2_score": 2
 }
 ```
 
@@ -85,11 +86,12 @@ Body:
 
 ```json
 {
-    "id": 1,
-    "user_id": 1,
-    "match_id": 1,
-    "team1_score": 2,
-    "team2_score": 0
+  "id": 1,
+  "user_id": 1,
+  "match_id": 1,
+  "team1_score": 2,
+  "team2_score": 0,
+  "status": true
 }
 ```
 
@@ -99,7 +101,7 @@ Response:
 
 ```json
 {
-    "message": "Bet deleted"
+  "message": "Bet deleted"
 }
 ```
 
