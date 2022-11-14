@@ -1,5 +1,5 @@
 import db from "../database/database.js";
-import { Bet } from "../protocols/Bet.js";
+import { BetEntity } from "../protocols/Bet.js";
 
 async function createBet(
   user_id: number,
@@ -17,7 +17,7 @@ async function deleteBet(id: number) {
   return db.query(`DELETE FROM bets WHERE id=$1;`, [id]);
 }
 
-async function upsertBet(updated_bet: Bet) {
+async function upsertBet(updated_bet: BetEntity) {
   const q1 = await db.query(
     `
     UPDATE bets
@@ -28,14 +28,15 @@ async function upsertBet(updated_bet: Bet) {
   );
   const q2 = await db.query(
     `
-    INSERT INTO bets (user_id, match_id, team1_score, team2_score)
-    VALUES ($1, $2, $3, $4);
+    INSERT INTO bets (user_id, match_id, team1_score, team2_score, status)
+    VALUES ($1, $2, $3, $4, $5);
     `,
     [
       updated_bet.user_id,
       updated_bet.match_id,
       updated_bet.team1_score,
       updated_bet.team2_score,
+      updated_bet.status,
     ]
   );
 

@@ -12,4 +12,5 @@ export type BetEntity = {
   match_id: number;
   team1_score: number;
   team2_score: number;
+  status: boolean;
 };
