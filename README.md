@@ -45,7 +45,7 @@ npm start
 
 ## Documentation
 
-### POST /users/new
+### ![#f03c15]POST /users/new
 
 Body:
 
