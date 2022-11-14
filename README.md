@@ -45,8 +45,7 @@ npm start
 
 ## Documentation
 
-### ![#f03c15] POST /users/new
-![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
+### POST /users/new
 
 Body:
 
